@@ -1,5 +1,6 @@
 # log-Dual
-Here the generator of the field GF(256) is chosen as 0x05.
+
+Here the primitive element of the field GF(256) is chosen as 0x05.
 
 type <b>"make"</b> to create the executable files.
 
