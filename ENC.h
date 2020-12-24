@@ -107,9 +107,9 @@ unsigned char const TransForm[16][16]={	{0xff,0x19,0x32,0xdf,0x64,0x8a,0xbf,0x70
 #define Word(a,i) (((a)>>((3-(i))<<5))&0xffffffff)
 #define Byte(b,i) (((b)>>((3-(i))<<3))&0xff)
 #define rotWord(W) ((Byte(W,1)<<24)|(Byte(W,2)<<16)|(Byte(W,3)<<8)|Byte(W,0))
-#define subWord(W) ((subByte_g(Byte(W,0))<<24)|(subByte_g(Byte(W,1))<<16)|(subByte_g(Byte(W,2))<<8)|subByte_g(Byte(W,3)))
+#define subWord(W) ((unsigned int)(subByte_g(Byte(W,0))<<24)|(unsigned int)(subByte_g(Byte(W,1))<<16)|(unsigned int)(subByte_g(Byte(W,2))<<8)|(unsigned int)subByte_g(Byte(W,3)))
 #define putAt(t,i,j) (((t)<<((3-(i))<<5))<<((3-(j))<<3))
-#define xor_word(a,b) (((f_xor(Byte(a,0),Byte(b,0)))<<24)|((f_xor(Byte(a,1),Byte(b,1)))<<16)|((f_xor(Byte(a,2),Byte(b,2)))<<8)|(f_xor(Byte(a,3),Byte(b,3))))
+#define xor_word(a,b) ((((unsigned int)f_xor(Byte(a,0),Byte(b,0)))<<24)|(((unsigned int)f_xor(Byte(a,1),Byte(b,1)))<<16)|(((unsigned int)f_xor(Byte(a,2),Byte(b,2)))<<8)|((unsigned int)f_xor(Byte(a,3),Byte(b,3))))
 
 unsigned int bits(unsigned int a);
 unsigned char mult(unsigned int a,unsigned int b);
